@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+{% block content %}
+<p>关键字搜索</p>
+
+<form action='/blog/search' method = 'get'>
+<input type = 'text' name='keyword'>
+<select name = 'major' >
+<option value='所有'>所有</option>
+<option value='电子一'>电子一</option>
+<option value='电子二'>电子二</option>
+<option value='电子三'>电子三</option>
+<option value='通信'>通信</option>
+</select>
+<input type='submit'>
+</form>
+
+
+{% for post in posts %}
+<h2> {{post.title }}</h2>
+<p>指导教师:&nbsp{{post.professor}}</p>
+<p>简介:&nbsp{{post.intro}}</p>
+{% if post.selected %}
+<p>状态：已选</p>
+{% else %}
+<p>状态：可选</p>
+{% endif %}
+<p>教研室: {{post.major}} </p>
+{% endfor %}
+{% endblock %}
