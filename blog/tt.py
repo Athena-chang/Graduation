@@ -1,3 +1,0 @@
-
-print 'eeeee'
-print "jjjj"

@@ -1,7 +1,7 @@
 
 {% extends "base.html" %}
 {% block content %}
-<p>关键字搜索</p>
+<p>关键字搜索/教研室筛选</p>
 
 <form action='/blog/search' method = 'get'>
 <input type = 'text' name='keyword'>
@@ -12,9 +12,12 @@
 <option value='电子三'>电子三</option>
 <option value='通信'>通信</option>
 </select>
+<input type ="radio" name ="onlySelectable">仅显示可选条目</input>
 <input type='submit'>
 </form>
 
+{% block searchResult %}
+{% endblock %}
 
 {% for post in posts %}
 <h2> {{post.title }}</h2>
